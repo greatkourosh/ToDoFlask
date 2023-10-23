@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="background">
+          <img class="home_page_coffee_img" src="https://fly.io/phoenix-files/phoenix-dev-blog-streams/assets/phoenix-dev-blog-cover.webp" alt="coffee home page">
+        </div>
+    <div class="content">
+        <h1>{% block title %} The Users Page {% endblock %}</h1>
+        <h2>This is the Users Flask blueprint now</h2>
+        {% for user in users %}
+            <div class="user">
+                <p>User id here<b>#{{ user.id }}</b></p>
+                <p class="title">
+                    Username here
+                    <b>
+                        <a href="#">
+                            {{ user.name }}
+                        </a>
+                    </b>
+                </p>
+                <div class="content">
+                    User password here
+                    <p>{{ user.password }}</p>
+                </div>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+{% endblock %}

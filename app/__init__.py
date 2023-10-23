@@ -15,8 +15,8 @@ def create_app(config_class=Config):
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
 
-    # from app.posts import bp as posts_bp
-    # app.register_blueprint(posts_bp, url_prefix='/posts')
+    from app.users import bp as users_bp
+    app.register_blueprint(users_bp, url_prefix='/users')
 
     # from app.questions import bp as questions_bp
     # app.register_blueprint(questions_bp, url_prefix='/questions')
