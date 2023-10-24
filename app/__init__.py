@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_gravatar import Gravatar
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user, logout_user
 from app.models.user import User
 # from flask_login import LoginManager
 from config import Config
@@ -50,11 +50,26 @@ def create_app(config_class=Config):
     from app.login import bp as login_bp
     app.register_blueprint(login_bp, url_prefix='/login')
 
+    from app.register import bp as register_bp
+    app.register_blueprint(register_bp, url_prefix='/register')
+
+    from app.contact import bp as contact_bp
+    app.register_blueprint(contact_bp, url_prefix='/contact')
+
+    # from app.register import bp as logout_bp
+    # app.register_blueprint(logout_bp, url_prefix='/logout')
+
     # from app.questions import bp as questions_bp
     # app.register_blueprint(questions_bp, url_prefix='/questions')
 
     @app.route('/test/')
     def test_page():
         return '<h1>Testing the Flask Application Factory Pattern</h1>'
+
+    @app.route('/logout/')
+    def logout():
+        if current_user:
+            logout_user()
+        return redirect(url_for('main.index'))
 
     return app

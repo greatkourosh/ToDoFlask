@@ -16,18 +16,18 @@
             <a class="nav-link" href="{{url_for('login.index')}}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{#{ url_for('register') }#}">Register</a>
+            <a class="nav-link" href="{{ url_for('register.index') }}">Register</a>
           </li>
             {% endif %}
           <li class="nav-item">
-            <a class="nav-link" href="{#{ url_for('logout') }#}">Log Out</a>
+            <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('users.users_index') }}">Users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{#{ url_for('contact') }#}">Contact</a>
+            <a class="nav-link" href="{{ url_for('contact.index') }}">Contact</a>
           </li>
         </ul>
       </div>
