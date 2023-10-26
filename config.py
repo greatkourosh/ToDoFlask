@@ -7,5 +7,5 @@ class Config:
     # SECRET_KEY = os.environ.get('SECRET_KEY')
     SECRET_KEY = 'sdffigou45fkd458'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')\
-        or 'sqlite:///' + os.path.join(basedir, 'app.db')
+        or 'sqlite:///' + os.path.join(basedir, 'todo.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
